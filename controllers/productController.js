@@ -8,6 +8,7 @@ const fetchProducts=async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
+///////////////////////////////////////////////////
 const fetchProduct = async  (req, res) => {
     const productId = req.params.id
     const product = await Product.findById(productId)
@@ -15,6 +16,7 @@ const fetchProduct = async  (req, res) => {
     res.json({product:product});
 
 }
+/////////////////////////////////////////////////////////////
 const newProduct = async (req, res) => {
     
        const name = req.body.name;
@@ -43,6 +45,7 @@ const newProduct = async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 }
+///////////////////////////////////////////////////////////////
 const updateProduct= async (req, res) => {
    
        name = req.body.name;
@@ -71,6 +74,8 @@ const updateProduct= async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 }
+
+///////////////////////////////////////////////////////////////////////////////
 const deleteProduct = async (req, res) => {
     const productId = req.params.id 
     try {

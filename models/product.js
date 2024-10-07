@@ -15,17 +15,36 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
+        enum: ['clothes','accessories'],
         required: true,
+    },
+    size: {
+        type: String,
+        enum: ['small','medium','large'],
+        required: true,
+       
+    },
+    color: {
+        type: String,
+        required: true, 
     },
     image: {
         type: String,
         required: true,
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    }
+},
+{
+    timestamps: true,
 });
 
-const Product = mongoose.model('Product', productSchema);
 
-module.exports = Product;
+
+module.exports = mongoose.model('Product', productSchema);
 
 
 
